@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from '../components/Title'
 import { assets } from '../assets/assets'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
 
@@ -42,6 +43,7 @@ const Cart = () => {
 
     return total
   }
+  const navigate = useNavigate()
 
   return (
     <div className='border-t pt-14'>
@@ -159,7 +161,9 @@ const Cart = () => {
 
           <div className='w-full text-end mt-8'>
 
-            <button className='bg-black text-white text-sm px-8 py-3'>
+            <button 
+              onClick={() => navigate('/place-order')}
+              className='bg-black text-white text-sm px-8 py-3'>
               PROCEED TO CHECKOUT
             </button>
 
